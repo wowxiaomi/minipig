@@ -1,4 +1,6 @@
-package com.minipig.weixin;
+package com.minipig.util;
+
+import org.apache.log4j.Logger;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -6,28 +8,33 @@ import java.util.Arrays;
 
 public class SignUtil {
 
-    private static String token="tangtang";
+    private static Logger logger = Logger.getLogger(SignUtil.class);
+
+    private static String token = "tangtang";
+
     /**
      * 验证签名
+     *
      * @param signature
      * @param timestamp
      * @param nonce
      * @return
      */
-    public static boolean checkSignature(String signature,String timestamp,String nonce){
-       String tmpStr = null;
-       MessageDigest md = null;
-       String[] arr = new String[]{token,timestamp,nonce};
-       Arrays.sort(arr);
-       StringBuilder content = new StringBuilder();
-       for(int i=0;i<arr.length;i++){
-           content.append(arr[i]);
-       }
+    public static boolean checkSignature(String signature, String timestamp, String nonce) {
+        String tmpStr = null;
+        MessageDigest md = null;
+        String[] arr = new String[]{token, timestamp, nonce};
+        Arrays.sort(arr);
+        logger.info("checkSignature:" + arr);
+        StringBuilder content = new StringBuilder();
+        for (int i = 0; i < arr.length; i++) {
+            content.append(arr[i]);
+        }
         try {
             md = MessageDigest.getInstance("SHA-1");
             byte[] digest = md.digest(content.toString().getBytes());
             tmpStr = byteToStr(digest);
-        }catch (NoSuchAlgorithmException e){
+        } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
         content = null;
