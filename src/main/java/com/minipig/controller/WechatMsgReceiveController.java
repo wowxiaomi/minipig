@@ -1,7 +1,6 @@
 package com.minipig.controller;
 
 import java.io.*;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -9,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 
 import com.minipig.service.CoreService;
-import com.minipig.util.MessageUtil;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,8 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/wechat")
-public class WechatSecurity {
-    private static Logger logger = Logger.getLogger(WechatSecurity.class);
+public class WechatMsgReceiveController {
+    private static Logger logger = Logger.getLogger(WechatMsgReceiveController.class);
 
     @RequestMapping(value = "minipig", method = RequestMethod.GET)
     public void doGet(
