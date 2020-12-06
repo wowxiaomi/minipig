@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>miniPig</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <style type="text/css">
+        p {
+            font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB",
+            "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+<p>The miniPig site ,welcome for you</p>
+<p>site phone:010-9089098</p>
+<p>site address: dawanglu chaoyang beijing</p>
+<div id="app">
+    <el-button disabled>默认按钮</el-button>
+    <el-button type="primary" disabled>主要按钮</el-button>
+    <el-button type="success" disabled>成功按钮</el-button>
+    <el-button type="info" disabled>信息按钮</el-button>
+    <el-button type="warning" disabled>警告按钮</el-button>
+    <el-button type="danger" disabled>危险按钮</el-button>
+    <el-button type="primary" icon="el-icon-search">搜索</el-button>
+</div>
+<i class="el-icon-edit"></i>
+<i class="el-icon-share"></i>
+<i class="el-icon-delete"></i>
+</body>
+<!-- 先引入 Vue -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    new Vue({ //记得声明，不然看不到element的input组件
+        el: '#app',
+        data: {},
+        methods: {//这里用于定义方法
+        },
+        computed: {//计算属性
+        }
+    })
+</script>
+
+</html>
