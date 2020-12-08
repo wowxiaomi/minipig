@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.minipig.mapper.SigninUserMapper">
+<mapper namespace="com.minipig.mapper.SiginUserMapper">
 
-    <insert id="save" parameterType="com.minipig.pojo.SigninUser">
-        insert into student(name,salary) values(#{name},#{salary})
+    <resultMap id="siginUser" type="com.minipig.pojo.SigninUser">
+        <id column="signin_user_id" property="signinUserId" javaType="String"></id>
+        <result column="signin_user_name" property="signinUserName" javaType="String"></result>
+        <result column="signin_user_pwd" property="siginUserPwd" javaType="String"></result>
+    </resultMap>
+    <insert id="siginUp" parameterType="com.minipig.pojo.SigninUser">
+        insert into signin_user(signin_user_id,signin_user_name,signin_user_pwd) values (#{signinUserId},#{signinUserName},#{siginUserPwd})
     </insert>
-
-    <select id="findAll" resultType="com.minipig.pojo.SigninUser">
-        select *
-        from student
+    <select id="findAllSigninUser" resultMap="siginUser">
+        select signin_user_id,signin_user_name,signin_user_pwd
+        from signin_user
     </select>
 
 </mapper>
